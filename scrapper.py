@@ -36,9 +36,9 @@ def get_wallet2user(wallet2user=None,
     for user in usernames:
         wallet = json.loads(requests.get("%s/%s" % (url_user_page, user)).text)['wallet']
         if wallet not in {None, ''}:
-            if wallet not in wallet2user:
-                wallet2user[wallet] = {}
-            wallet2user[wallet]['user'] = user
+            if wallet.lower() not in wallet2user:
+                wallet2user[wallet.lower()] = {}
+            wallet2user[wallet.lower()]['user'] = user
 
     return wallet2user
 
@@ -83,9 +83,9 @@ def get_projects_and_users(wallet2user=None,
                     projects[project_id]['balance'] = BALANCE
                 except ValueError:
                     # Not a project index, user instead
-                    if WALLET not in wallet2user:
-                        wallet2user[WALLET] = {}
-                    wallet2user[WALLET]['balance'] = BALANCE
+                    if WALLET.lower() not in wallet2user:
+                        wallet2user[WALLET.lower()] = {}
+                    wallet2user[WALLET.lower()]['balance'] = BALANCE
 
         if not aux_found:
             return wallet2user, projects
