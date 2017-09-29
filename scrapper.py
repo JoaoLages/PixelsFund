@@ -51,8 +51,13 @@ initial_wallet2user = {
     },
     '0xcefe8abd132eeec1a6299502f7287cb072da6cfc': {
         'user': 'Luis Mendes', 'balance': 25000
+    },
+    '0xaaf5bdf1c3687dfb7a5b9e9058c64dfba391f8e4': {
+        'user': 'Jacques West', 'balance': 25001
+    },
+    '0x3593de4cb08563806e41a74c39b828689c2e29a4': {
+        'user': 'Pedro Ferreira', 'balance': 25000
     }
-
 }
 
 
