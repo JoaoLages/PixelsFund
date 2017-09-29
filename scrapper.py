@@ -23,7 +23,7 @@ initial_wallet2user = {
         'user': 'Claudio Gamboa', 'balance': 25614
     },
     '0xf116e7c317c1ad1df34c1253685d37587cfd7f0c': {
-        'user': 'André Cruz', 'balance': 25188
+        'user': 'Andre Cruz', 'balance': 25188
     },
     '0xe90d6f8585f75eb7cef5fba0674cac90bcb852de': {
         'user': 'Nuno Loureiro', 'balance': 25100
