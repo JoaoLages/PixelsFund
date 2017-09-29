@@ -9,6 +9,51 @@ import os.path
 
 UNKNOWN_TOKEN = '__unknown__'
 MASTER_WALLET = '0x3d417b8305aa60688385a1ca56530130c77f8739'
+initial_wallet2user = {
+    '0x4140a568eccb4b8a6b87a69797b4c9bb23c29889': {
+        'user': 'celso', 'balance': 30000
+    },
+    '0xaa523732baf8dfc633f6b30a5cd6b8f688e10dbb': {
+        'user': 'Alexandre Santos', 'balance': 25295
+    },
+    '0x91c897121fed96db5f6c23930aabb1ee8eafe25f': {
+        'user': 'Benjamim Junior', 'balance': 30000
+    },
+    '0x48e6f88f863c3178f470d92f799c6959fe98e2fe': {
+        'user': 'Claudio Gamboa', 'balance': 25614
+    },
+    '0xf116e7c317c1ad1df34c1253685d37587cfd7f0c': {
+        'user': 'André Cruz', 'balance': 25188
+    },
+    '0xe90d6f8585f75eb7cef5fba0674cac90bcb852de': {
+        'user': 'Nuno Loureiro', 'balance': 25100
+    },
+    '0xde2f49122f680b24a9cbee64a2c7a28642bc3d64': {
+        'user': 'Nuno Jesus', 'balance': 25400
+    },
+    '0xde67adcc0bd2e4b41c761e8bb4eef8643836bdd0': {
+        'user': 'Rita Ralha', 'balance': 25300
+    },
+    '0xd27678cdaf0c2d1c5c3de4cbbc02eb01f93525bb': {
+        'user': 'Renato Leao', 'balance': 25700
+    },
+    '0xfb721ba0f3e0054a8d5b669103cbcd4d3956b321': {
+        'user': 'Luis Kohler', 'balance': 25000
+    },
+    '0xf98dd488d2e77589461021650026e20a503d0d6c': {
+        'user': 'Tocha', 'balance': 27000
+    },
+    '0x0992a7254fd5a2547795a7a4eb64ec62defa86e4': {
+        'user': 'Joao Sil', 'balance': 26100
+    },
+    '0x4f45c3ebbca659e458ace3984bb7bb3de264b536': {
+        'user': 'Julio Faerman', 'balance': 25106
+    },
+    '0xcefe8abd132eeec1a6299502f7287cb072da6cfc': {
+        'user': 'Luis Mendes', 'balance': 25000
+    }
+
+}
 
 
 def get_wallet2user(wallet2user=None,
@@ -24,7 +69,7 @@ def get_wallet2user(wallet2user=None,
     users = json.loads(requests.get(url_all_users).text)['owners']['2017']
 
     if not wallet2user:
-        wallet2user = {}
+        wallet2user = initial_wallet2user
         usernames = [user['user'] for user in users]
     else:
         assert isinstance(wallet2user, dict)
