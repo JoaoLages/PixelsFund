@@ -147,7 +147,7 @@ def get_transactions(transactions=None,
 
                     transactions['from_to_amount'][FROM][TO].append(
                         {'balance': 0,
-                         'timestamp': int(transaction_id.replace('_', ''))}
+                         'timestamp': int(transaction_id.replace('_', '').replace('/event/', ''))}
                     )
                     transactions['transaction_ids'] |= {transaction_id}
 
