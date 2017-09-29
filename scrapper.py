@@ -8,6 +8,7 @@ import os.path
 
 
 UNKNOWN_TOKEN = '__unknown__'
+MASTER_WALLET = '0x3d417b8305aa60688385a1ca56530130c77f8739'
 
 
 def get_wallet2user(wallet2user=None,
