@@ -3,3 +3,4 @@ venv/
 .idea/
 __pycache__/
 get_jsons.sh
+.ipynb_checkpoints/
