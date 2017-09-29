@@ -37,9 +37,10 @@ def get_wallet2user(wallet2user=None,
     for user in usernames:
         wallet = json.loads(requests.get("%s/%s" % (url_user_page, user)).text)['wallet']
         if wallet not in {None, ''}:
-            if wallet.lower() not in wallet2user:
-                wallet2user[wallet.lower()] = {}
-            wallet2user[wallet.lower()]['user'] = user
+            if wallet.lower() != MASTER_WALLET:  # Ignore master wallet
+                if wallet.lower() not in wallet2user:
+                    wallet2user[wallet.lower()] = {}
+                wallet2user[wallet.lower()]['user'] = user
 
     return wallet2user
 
@@ -84,9 +85,10 @@ def get_projects_and_users(wallet2user=None,
                     projects[project_id]['balance'] = BALANCE
                 except ValueError:
                     # Not a project index, user instead
-                    if WALLET.lower() not in wallet2user:
-                        wallet2user[WALLET.lower()] = {}
-                    wallet2user[WALLET.lower()]['balance'] = BALANCE
+                    if WALLET.lower() != MASTER_WALLET:  # Ignore master wallet
+                        if WALLET.lower() not in wallet2user:
+                            wallet2user[WALLET.lower()] = {}
+                        wallet2user[WALLET.lower()]['balance'] = BALANCE
 
         if not aux_found:
             return wallet2user, projects
@@ -137,13 +139,14 @@ def get_transactions(transactions=None,
 
                 FROM, TO, AMOUNT = tds[1].text, tds[2].text, int(tds[3].text[:-3])
 
-                if FROM not in transactions['from_to_amount']:
-                    transactions['from_to_amount'][FROM] = {}
-                if TO not in transactions['from_to_amount'][FROM]:
-                    transactions['from_to_amount'][FROM][TO] = 0
+                if FROM != MASTER_WALLET:  # Ignore master wallet
+                    if FROM not in transactions['from_to_amount']:
+                        transactions['from_to_amount'][FROM] = {}
+                    if TO not in transactions['from_to_amount'][FROM]:
+                        transactions['from_to_amount'][FROM][TO] = 0
 
-                transactions['from_to_amount'][FROM][TO] += AMOUNT
-                transactions['transaction_ids'] |= {transaction_id}
+                    transactions['from_to_amount'][FROM][TO] += AMOUNT
+                    transactions['transaction_ids'] |= {transaction_id}
 
         if not aux_found:
             transactions['transaction_ids'] = list(transactions['transaction_ids'])
