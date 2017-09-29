@@ -143,9 +143,12 @@ def get_transactions(transactions=None,
                     if FROM not in transactions['from_to_amount']:
                         transactions['from_to_amount'][FROM] = {}
                     if TO not in transactions['from_to_amount'][FROM]:
-                        transactions['from_to_amount'][FROM][TO] = 0
+                        transactions['from_to_amount'][FROM][TO] = []
 
-                    transactions['from_to_amount'][FROM][TO] += AMOUNT
+                    transactions['from_to_amount'][FROM][TO].append(
+                        {'balance': 0,
+                         'timestamp': int(transaction_id.replace('_', ''))}
+                    )
                     transactions['transaction_ids'] |= {transaction_id}
 
         if not aux_found:
