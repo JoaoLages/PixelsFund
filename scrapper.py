@@ -57,6 +57,18 @@ initial_wallet2user = {
     },
     '0x3593de4cb08563806e41a74c39b828689c2e29a4': {
         'user': 'Pedro Ferreira', 'balance': 25000
+    },
+    '0x0261fce080054d9011e5fbad55d8591edba44eba': {
+        'user': 'Ricardo Marvao', 'balance': 25000
+    },
+    '0x7c12cb88f71ec376b9849c4794f6f0aeaa073952': {
+        'user': 'Pedro Vieira', 'balance': 25000
+    },
+    '0x766c0f417b01e2c5fcc324219ec7841156b8ad70': {
+        'user': 'Tomas bento', 'balance': 20500
+    },
+    '0x862fc58d1d598105e6b453944bd49b5ffdda91c1': {
+        'user': 'jason nadal', 'balance': 26400
     }
 }
 
