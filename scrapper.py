@@ -78,7 +78,7 @@ def get_wallet2user(wallet2user=None,
         usernames = [user['user'] for user in users]
     else:
         assert isinstance(wallet2user, dict)
-
+        wallet2user = {**wallet2user, **initial_wallet2user}
         existing_users = {wallet2user[wallet]['user'] for wallet in wallet2user
                           if 'user' in wallet2user[wallet]}
         usernames = [user['user'] for user in users
