@@ -2,5 +2,5 @@
 
 while true; do
     python scrapper.py --re-extract True
-    sleep 900
+    sleep 300
 done
