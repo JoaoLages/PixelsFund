@@ -1,5 +1,5 @@
 #! /bin/bash
 
 while true; do
-    python scrapper.py
+    python scrapper.py --re-extract True
 done
