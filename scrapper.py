@@ -61,6 +61,13 @@ initial_wallet2user = {
 }
 
 
+def merge_two_dicts(x, y):
+    """Given two dicts, merge them into a new dict as a shallow copy."""
+    z = x.copy()
+    z.update(y)
+    return z
+
+
 def get_wallet2user(wallet2user=None,
                     url_all_users='https://api.pixels.camp/badges/owners/92',
                     url_user_page='https://api.pixels.camp/users'):
@@ -78,7 +85,7 @@ def get_wallet2user(wallet2user=None,
         usernames = [user['user'] for user in users]
     else:
         assert isinstance(wallet2user, dict)
-        wallet2user = {**wallet2user, **initial_wallet2user}
+        wallet2user = merge_two_dicts(wallet2user, initial_wallet2user)
         existing_users = {wallet2user[wallet]['user'] for wallet in wallet2user
                           if 'user' in wallet2user[wallet]}
         usernames = [user['user'] for user in users
